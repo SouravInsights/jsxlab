@@ -43,8 +43,8 @@ export const PropertySidebar: React.FC = () => {
               {selectedElement.tagName}
               {selectedElement.textContent && (
                 <span className="ml-1 opacity-75">
-                  "{selectedElement.textContent.slice(0, 10)}
-                  {selectedElement.textContent.length > 10 ? "..." : ""}"
+                  &quot;{selectedElement.textContent.slice(0, 10)}
+                  {selectedElement.textContent.length > 10 ? "..." : ""}&quot;
                 </span>
               )}
             </span>
