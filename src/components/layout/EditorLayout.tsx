@@ -7,6 +7,13 @@ import { ComponentCanvas } from "../editor/ComponentCanvas";
 import { Header } from "./Header";
 import { Button } from "../ui/button";
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   ChevronLeft,
   ChevronRight,
   Code,
@@ -266,20 +273,22 @@ export const EditorLayout: React.FC = () => {
                     </Button>
                   </label>
 
-                  <select
-                    onChange={(e) => {
-                      const key = e.target.value;
+                  <Select
+                    onValueChange={(key) => {
                       if (key) setCodeInput(sampleComponents[key]);
                     }}
-                    className="border rounded-md text-sm px-2 py-1"
                   >
-                    <option value="">Load Sample</option>
-                    {Object.keys(sampleComponents).map((key) => (
-                      <option key={key} value={key}>
-                        {key}
-                      </option>
-                    ))}
-                  </select>
+                    <SelectTrigger className="w-[180px]">
+                      <SelectValue placeholder="Load Sample" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {Object.keys(sampleComponents).map((key) => (
+                        <SelectItem key={key} value={key}>
+                          {key}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
 
